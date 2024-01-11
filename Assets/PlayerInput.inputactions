@@ -1,0 +1,62 @@
+{
+    "name": "PlayerInput",
+    "maps": [
+        {
+            "name": "Unit",
+            "id": "096d15e6-0809-4adb-9f55-919389c87dfc",
+            "actions": [
+                {
+                    "name": "Choose Destination",
+                    "type": "Button",
+                    "id": "0514687d-38ed-4812-a1b2-c8373c1f9774",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1e26a72f-67e6-42b4-8c57-1ba90dca7659",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Choose Destination",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Camera",
+            "id": "3b6a3830-d38c-4b75-8407-f0b4663e0481",
+            "actions": [
+                {
+                    "name": "Movement",
+                    "type": "Button",
+                    "id": "b33bd71e-9f8c-4e3a-8d33-2be7e7940d44",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "246bdbb3-85c7-4e4f-a807-e2ccf5f3f7b4",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
