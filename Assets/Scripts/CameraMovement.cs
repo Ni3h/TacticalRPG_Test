@@ -13,6 +13,16 @@ public class CameraMovement : BaseBehavior {
             return Mouse.current.position.ReadValue();
         }
     }
+
+    public static Vector2 TranslatedMousePosition {
+        get {
+            var cameraObject = GameObject.Find("Main Camera");
+            var camera = cameraObject.GetComponent<Camera>();
+            var screenPos = CurrentMousePosition;
+            var cameraPos = camera.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y, camera.transform.position.z));
+            return new Vector3(-cameraPos.x, cameraPos.y, cameraPos.z);
+        }
+    }
     private Vector2 lastCameraStartPosition;
     private bool isCameraMoving = false;
 
@@ -32,13 +42,12 @@ public class CameraMovement : BaseBehavior {
 
     protected override void OnUpdate(float delta) {
         if (isCameraMoving) {
-            var diff = (CurrentMousePosition - lastCameraStartPosition) * (MoveRate / 100f);
-            print(diff);
-            var cellSize = 1;
-            // These if statements cause the camera to move stepwise - 1 tile at a time.
+            var diff = (CurrentMousePosition - lastCameraStartPosition) * MoveRate;
+            var cellSize = PixelPerfectCamera.assetsPPU;
+            // These if statements cause the camera to move stepwise (1 tile at a time).
             if (cellSize < Mathf.Abs(diff.x)) {
                 lastCameraStartPosition = CurrentMousePosition;
-                Position += new Vector3(diff.x > 0 ? 1 : -1, 0);
+                Position += new Vector3(diff.x < 0 ? 1 : -1, 0);
             }
             if (cellSize < Mathf.Abs(diff.y)) {
                 lastCameraStartPosition = CurrentMousePosition;

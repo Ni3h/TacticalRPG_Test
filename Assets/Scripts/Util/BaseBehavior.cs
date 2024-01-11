@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.U2D;
 
 public abstract class BaseBehavior : MonoBehaviour {
 
@@ -32,6 +33,16 @@ public abstract class BaseBehavior : MonoBehaviour {
         }
     }
     private Camera cameraRef = null;
+
+    /// <summary>
+    /// The PixelPerfectCamera component for this GameObject, if one exists.
+    /// </summary>
+    protected PixelPerfectCamera PixelPerfectCamera {
+        get {
+            return GetComponentOrNull(ref pixelPerfectCameraRef);
+        }
+    }
+    private PixelPerfectCamera pixelPerfectCameraRef = null;
     #endregion
 
     #region Helpful wrapper properties
