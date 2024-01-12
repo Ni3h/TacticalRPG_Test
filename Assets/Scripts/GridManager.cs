@@ -3,8 +3,6 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class GridManager : BaseBehavior {
-
-
     /// <summary>
     /// A representation of the game world grid, for use in pathfinding.
     /// </summary>
@@ -15,6 +13,10 @@ public class GridManager : BaseBehavior {
     public static GridManager Instance {
         get; private set;
     }
+
+    [SerializeField]
+    [Tooltip("The camera currently being used to observe this grid.")]
+    private Camera ActiveCamera;
 
     protected override void OnStart() {
         var tilePathing = new List<PathingTile>();
