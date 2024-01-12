@@ -20,12 +20,13 @@ public class GridManager : BaseBehavior {
         var tilePathing = new List<PathingTile>();
         var tilemaps = GetComponentsInChildren<Tilemap>();
         foreach (var tilemap in tilemaps) {
-            var mapTiles = tilemap.GetTilesBlock(tilemap.cellBounds);
-            for (var x = 0; x < tilemap.cellBounds.size.x; x++) {
-                for (var y = 0; y < tilemap.cellBounds.size.y; y++) {
-                    var tile = mapTiles[x + y * tilemap.cellBounds.size.x];
+            var bnd = tilemap.cellBounds;
+            var mapTiles = tilemap.GetTilesBlock(bnd);
+            for (var x = 0; x < bnd.size.x; x++) {
+                for (var y = 0; y < bnd.size.y; y++) {
+                    var tile = mapTiles[x + y * bnd.size.x];
                     if (tile != null) {
-                        tilePathing.Add(new PathingTile(new Vector2Int(x, y), tilemap.gameObject.layer != 6));
+                        tilePathing.Add(new PathingTile(new Vector2Int(bnd.x + x, bnd.y + y), tilemap.gameObject.layer != 6));
                     }
                 }
             }

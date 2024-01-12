@@ -2,13 +2,22 @@
     "name": "PlayerInput",
     "maps": [
         {
-            "name": "Unit",
-            "id": "096d15e6-0809-4adb-9f55-919389c87dfc",
+            "name": "Player",
+            "id": "08aa16c6-1d5d-4f95-9a09-4d938e4ce0d1",
             "actions": [
+                {
+                    "name": "Move Camera",
+                    "type": "Button",
+                    "id": "3c4aed12-c665-47a5-a744-3f9ddf283443",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
                 {
                     "name": "Choose Destination",
                     "type": "Button",
-                    "id": "0514687d-38ed-4812-a1b2-c8373c1f9774",
+                    "id": "6b2cfdcf-184d-460a-b08e-b1577d2ec35d",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -18,40 +27,23 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "1e26a72f-67e6-42b4-8c57-1ba90dca7659",
+                    "id": "820041b5-41de-44ff-98a2-6ea8fa519d23",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move Camera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fbd27413-7d17-4a53-93dd-50d4a3d44832",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Choose Destination",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Camera",
-            "id": "3b6a3830-d38c-4b75-8407-f0b4663e0481",
-            "actions": [
-                {
-                    "name": "Movement",
-                    "type": "Button",
-                    "id": "b33bd71e-9f8c-4e3a-8d33-2be7e7940d44",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "246bdbb3-85c7-4e4f-a807-e2ccf5f3f7b4",
-                    "path": "<Mouse>/middleButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

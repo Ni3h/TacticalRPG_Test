@@ -13,19 +13,21 @@ public static class Pathfinding {
 
     /// <summary>
     /// Returns an array of 2D coordinates that represents an optimal path between two points.
+    /// If a path cannot be found between the two points provided, an empty array will be returned instead.
     /// </summary>
     /// <remarks>
     /// Uses euclidian distance as a heuristic function. Read this for more details:
     /// https://theory.stanford.edu/~amitp/GameProgramming/Heuristics.html
     /// </remarks>
-    /// <param name="grid">A map of points on a grid, along with the validity of that point.</param>
+    /// <param name="tiles">A map of points on a grid, along with the validity of that point.</param>
     /// <param name="start">The start tile coordinates.</param>
     /// <param name="end">The end tile coordinates.</param>
     /// <param name="allowDiagonal">Whether or not to consider diagonal moves valid.</param>
-    public static Vector2Int[] FindShortestPath(IEnumerable<PathingTile> grid, Vector2Int start, Vector2Int end, bool allowDiagonal = false) {
-        var gridMap = new Dictionary<Vector2Int, PathingTile>();
-        foreach (var element in grid) {
-            gridMap[element.Position] = element;
+    public static Vector2Int[] FindShortestPath(IEnumerable<PathingTile> tiles, Vector2Int start, Vector2Int end, bool allowDiagonal = false) {
+        var tileMap = new Dictionary<Vector2Int, PathingTile>();
+        // Map tile array to 
+        foreach (var element in tiles) {
+            tileMap[element.Position] = element;
         }
         var endNode = new Node(end);
 
@@ -62,7 +64,7 @@ public static class Pathfinding {
                     continue;
                 }
                 var nodePosition = currentNode.Position + newPosition;
-                if (gridMap.TryGetValue(nodePosition, out PathingTile selector) && selector.Traversable) {
+                if (tileMap.TryGetValue(nodePosition, out PathingTile selector) && selector.Traversable) {
                     children.Add(new Node(nodePosition, currentNode));
                 }
             }
